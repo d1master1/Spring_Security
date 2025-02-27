@@ -1,10 +1,10 @@
 package com.example.spring_security.model;
 
-public enum role {
+public enum Role {
     USER("Пользователь"),
     ADMIN("Администратор");
 
-    role(String name) {
+    Role(String name) {
 
     }
 }
