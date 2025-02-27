@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>>Электронная библиотека - Регистрация</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
 </head>
 <body>
+<div th:replace="~{/include/header}"></div>
+
+<div class="container">
+    <h1>Регистрация</h1>
+    <hr>
+    <form th:action="@{/save}" th:object="${user}" method="post">
+        <label for="username" class="form-label">Лoгин: </label>
+        <input type="text" class="form-control" id="username" th:field="*{username}"/>
+        <label for="name" class="form-label">Имя: </label>
+        <input type="text" class="form-control" id="name" th:field="*{name}"/>
+        <label for="surname" class="form-label">Фамилия: </label>
+        <input type="text" class="form-control" id="surname" th:field="*{surname}"/>
+        <label for="password" class="form-label">Пapoль: </label>
+        <input type="password" class="form-control" id="password" th:field="*{password}"/><br>
+        <button class="btn btn-primary" type="submit">Регистрация</button>
+    </form>
+</div>
 
 </body>
 </html>

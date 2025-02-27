@@ -4,7 +4,7 @@ import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserDetailsService implements UserDetailsService {
+public final class UserDetailsService implements UserDetailsService {
 
     private final UserService userService;
 
