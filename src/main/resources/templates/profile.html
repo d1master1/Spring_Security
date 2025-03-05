@@ -25,7 +25,7 @@
             <div class="card mt-3">
                 <div class="card-body">
                     <h5 class="card-title">Добавление книг</h5>
-                    <div th:if="${books != null && !books.isEmpty()}">
+                    <!--<div th:if="${books != null && !books.isEmpty()}">
                         <ul>
                             <li th:each="book : ${books}">
                                 <a th:href="@{/book/detail/{id}(id=${book.id})}" class="nav nav-link"
@@ -36,7 +36,7 @@
                     </div>
                     <div th:if="${books == null || books.isEmpty()}">
                         <h6>Книжная полка пуста!</h6>
-                    </div>
+                    </div>-->
                 </div>
             </div>
             <div class="card mt-3">
