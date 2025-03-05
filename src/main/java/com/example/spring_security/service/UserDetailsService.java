@@ -1,10 +1,14 @@
 package com.example.spring_security.service;
 
-import org.apache.catalina.User;
+import com.example.spring_security.repo.UserService;
+import com.example.spring_security.model.User;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public final class UserDetailsService implements UserDetailsService {
+public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
 
     private final UserService userService;
 
@@ -13,12 +17,10 @@ public final class UserDetailsService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUSername(String username) throws UsernameNotFondException {
-
-        User user = userService.findUSer(username);
-
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = userService.findUser(username);
         if (user == null) {
-            throw new UsernameNotFondException("Пользователя с таким именем не существует: " + username + "!");
+            throw new UsernameNotFoundException("Пользователя с таким именем не существует: " + username + "!");
         }
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),
