@@ -17,16 +17,12 @@ public class SecurityConfig {
     SecurityFilterChain configure(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/", "/registration", "/login", "/webjars/**", "/css/**", "/js/**", "/images/**", "/fonts/**", "/save", "/profile")
-                        .permitAll()
-                        .requestMatchers("/book/**")
-                        .authenticated()
-                        .requestMatchers("/admin/**")
-                        .hasRole("ADMIN")
+                        .requestMatchers("/", "/register", "/login", "/index", "/webjars/**", "/css/", "/js/", "/fonts/", "/save").permitAll()
+                        .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .loginProcessingUrl("/")
+                        .loginProcessingUrl("/login")
                         .permitAll()
                 )
                 .logout(logout -> logout

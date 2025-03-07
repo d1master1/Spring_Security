@@ -20,6 +20,7 @@ public class User {
     private Set<Role> roles;
 
     public User() {
+
     }
 
     public User(Long id, String username, String password, String name, String surname, Set<Role> roles) {
